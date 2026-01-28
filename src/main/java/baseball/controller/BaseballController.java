@@ -38,7 +38,7 @@ public class BaseballController {
     }
 
     private Numbers requestNumbers() {
-        outputView.printlnMessage(InputMessage.INPUT_NUMBERS.getMessage());
+        outputView.printMessage(InputMessage.INPUT_NUMBERS.getMessage());
         try {
             Numbers numbers = new Numbers(inputView.enterNumbers());
             outputView.printEmptyLine();

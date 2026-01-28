@@ -8,6 +8,10 @@ public class OutputView {
         System.out.println(message);
     }
 
+    public void printMessage(String message) {
+        System.out.print(message);
+    }
+
     public void printEmptyLine() {
         System.out.println();
     }
