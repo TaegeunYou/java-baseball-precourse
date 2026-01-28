@@ -2,6 +2,7 @@ package baseball.controller;
 
 import baseball.domain.ComputerNumbers;
 import baseball.domain.Numbers;
+import baseball.domain.Result;
 import baseball.global.exception.CustomException;
 import baseball.global.message.InputMessage;
 import baseball.view.InputView;
@@ -19,6 +20,7 @@ public class BaseballController {
     public void run() {
         ComputerNumbers computerNumbers = new ComputerNumbers();
         Numbers inputNumbers = requestNumbers();
+        Result result = new Result(computerNumbers, inputNumbers);
     }
 
     private Numbers requestNumbers() {

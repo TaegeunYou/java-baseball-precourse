@@ -6,4 +6,8 @@ public class Number {
     public Number(int num) {
         this.num = num;
     }
+
+    public boolean isSameValue(Number number) {
+        return this.num == number.num;
+    }
 }

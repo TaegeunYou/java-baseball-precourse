@@ -21,4 +21,12 @@ public class ComputerNumbers {
         int[] result = {allNumbers.get(0), allNumbers.get(1), allNumbers.get(2)};
         return result;
     }
+
+    public Number get(int idx) {
+        return numbers.get(idx);
+    }
+
+    public boolean notContain(Number number) {
+        return numbers.notContain(number);
+    }
 }

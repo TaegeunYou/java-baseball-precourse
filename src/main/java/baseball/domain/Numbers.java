@@ -16,4 +16,21 @@ public class Numbers {
     private void result() {
 
     }
+
+    public Number get(int idx) {
+        return numbers.get(idx);
+    }
+
+    public boolean notContain(Number inputNumber) {
+        for (Number number: numbers) {
+            if (number.isSameValue(inputNumber)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int size() {
+        return numbers.size();
+    }
 }
