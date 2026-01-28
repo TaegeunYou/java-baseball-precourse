@@ -6,11 +6,28 @@ import baseball.global.message.ErrorMessage;
 import java.util.Scanner;
 
 public class InputView {
+
     public int[] enterNumbers() {
         String input = readLine();
         validateStringFormat(input);
         int[] nums = validateNumberFormat(input);
         return nums;
+    }
+
+    public int enterFinishType() {
+        String input = readLine();
+        if (input.length() != 1) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        char c = input.charAt(0);
+        if (!Character.isDigit(c)) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        int num = input.charAt(0) - '0';
+        if (num != 1 && num != 2) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        return num;
     }
 
     private void validateStringFormat(String str) {
@@ -56,28 +73,12 @@ public class InputView {
         return str == null || str.isBlank();
     }
 
-    public static boolean hasDuplicate(int[] arr) {
+    private static boolean hasDuplicate(int[] arr) {
         return arr[0] == arr[1] || arr[0] == arr[2] || arr[1] == arr[2];
     }
 
     private String readLine() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
-    }
-
-    public int enterFinishType() {
-        String input = readLine();
-        if (input.length() != 1) {
-            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
-        }
-        char c = input.charAt(0);
-        if (!Character.isDigit(c)) {
-            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
-        }
-        int num = input.charAt(0) - '0';
-        if (num != 1 && num != 2) {
-            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
-        }
-        return num;
     }
 }
