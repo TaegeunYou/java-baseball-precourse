@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.ComputerNumbers;
 import baseball.domain.Numbers;
 import baseball.global.exception.CustomException;
 import baseball.global.message.InputMessage;
@@ -16,7 +17,8 @@ public class BaseballController {
     }
 
     public void run() {
-        requestNumbers();
+        ComputerNumbers computerNumbers = new ComputerNumbers();
+        Numbers inputNumbers = requestNumbers();
     }
 
     private Numbers requestNumbers() {
