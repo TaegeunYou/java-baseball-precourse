@@ -16,11 +16,12 @@ public class InputView {
 
     public int enterFinishType() {
         String input = readLine();
-        if (input.length() != 1) {
-            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
-        }
-        char c = input.charAt(0);
-        if (!Character.isDigit(c)) {
+        int num = parseFinishType(input);
+        return num;
+    }
+
+    private int parseFinishType(String input) {
+        if (input.length() != 1 || !Character.isDigit(input.charAt(0))) {
             throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
         }
         int num = input.charAt(0) - '0';
