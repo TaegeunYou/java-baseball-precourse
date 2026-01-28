@@ -75,7 +75,7 @@ public class InputView {
             throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
         }
         int num = input.charAt(0) - '0';
-        if (num != 0 && num != 1) {
+        if (num != 1 && num != 2) {
             throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
         }
         return num;
