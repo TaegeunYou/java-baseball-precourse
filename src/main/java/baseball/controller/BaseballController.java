@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.Numbers;
 import baseball.global.exception.CustomException;
 import baseball.global.message.InputMessage;
 import baseball.view.InputView;
@@ -18,12 +19,15 @@ public class BaseballController {
         requestNumbers();
     }
 
-    private void requestNumbers() {
+    private Numbers requestNumbers() {
         outputView.printlnMessage(InputMessage.INPUT_NUMBERS.getMessage());
         try {
-            inputView.enterNumbers();
+            Numbers numbers = new Numbers(inputView.enterNumbers());
+            outputView.printEmptyLine();
+            return numbers;
         } catch (CustomException e) {
-
+            outputView.printlnMessageWithEmptyLine(e.getMessage());
+            return requestNumbers();
         }
     }
 }
