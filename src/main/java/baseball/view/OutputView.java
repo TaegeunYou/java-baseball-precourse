@@ -22,12 +22,10 @@ public class OutputView {
     }
 
     public void printlnStrikeAndBall(Result result) {
-        if (result.getResultType() == ResultType.STRIKE_AND_BALL) {
-            StringBuilder sb = new StringBuilder();
-            appendStrike(result, sb);
-            appendBall(result, sb);
-            printlnMessage(sb.toString());
-        }
+        StringBuilder sb = new StringBuilder();
+        appendStrike(result, sb);
+        appendBall(result, sb);
+        printlnMessage(sb.toString());
     }
 
     private void appendStrike(Result result, StringBuilder sb) {
