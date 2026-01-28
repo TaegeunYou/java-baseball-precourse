@@ -3,6 +3,7 @@ package baseball.controller;
 import baseball.domain.ComputerNumbers;
 import baseball.domain.Numbers;
 import baseball.domain.Result;
+import baseball.domain.ResultType;
 import baseball.global.exception.CustomException;
 import baseball.global.message.InputMessage;
 import baseball.view.InputView;
@@ -20,7 +21,6 @@ public class BaseballController {
     public void run() {
         ComputerNumbers computerNumbers = new ComputerNumbers();
         Numbers inputNumbers = requestNumbers();
-        Result result = new Result(computerNumbers, inputNumbers);
     }
 
     private Numbers requestNumbers() {
@@ -33,5 +33,19 @@ public class BaseballController {
             outputView.printlnMessageWithEmptyLine(e.getMessage());
             return requestNumbers();
         }
+    }
+
+    private void checkResult(ComputerNumbers computerNumbers, Numbers inputNumbers) {
+        Result result = new Result(computerNumbers, inputNumbers);
+        outputView.printStrikeAndBall(result);
+        if (result.getResultType() == ResultType.THREE_STRIKE) {
+            outputView.printThreeStrikeResult(result);
+            return;
+        }
+        if (result.getResultType() == ResultType.STRIKE_AND_BALL) {
+
+            return;
+        }
+
     }
 }

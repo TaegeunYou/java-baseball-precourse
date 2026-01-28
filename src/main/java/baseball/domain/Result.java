@@ -25,4 +25,15 @@ public class Result {
         this.resultType = ResultType.getResult(strike, ball);
     }
 
+    public ResultType getResultType() {
+        return resultType;
+    }
+
+    public int getStrike() {
+        return strike;
+    }
+
+    public int getBall() {
+        return ball;
+    }
 }
