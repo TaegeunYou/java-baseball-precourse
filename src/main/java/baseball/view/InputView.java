@@ -28,6 +28,7 @@ public class InputView {
             validateDigit(str.charAt(i));
             int num = str.charAt(i) - '0';
             validatePositiveNumber(num);
+            nums[i] = num;
         }
         validateDuplicate(nums);
         return nums;
