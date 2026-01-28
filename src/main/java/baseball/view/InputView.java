@@ -63,4 +63,20 @@ public class InputView {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+    public int enterFinishType() {
+        String input = readLine();
+        if (input.length() != 1) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        char c = input.charAt(0);
+        if (!Character.isDigit(c)) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        int num = input.charAt(0) - '0';
+        if (num != 0 && num != 1) {
+            throw CustomException.of(ErrorMessage.INVALID_FINISH_INPUT);
+        }
+        return num;
+    }
 }

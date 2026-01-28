@@ -20,7 +20,21 @@ public class BaseballController {
 
     public void run() {
         ComputerNumbers computerNumbers = new ComputerNumbers();
+        process(computerNumbers);
+    }
+
+    public void process(ComputerNumbers computerNumbers) {
         Numbers inputNumbers = requestNumbers();
+        Result result = new Result(computerNumbers, inputNumbers);
+        outputView.printlnStrikeAndBall(result);
+        if (result.getResultType() != ResultType.THREE_STRIKE) {
+            process(computerNumbers);
+            return;
+        }
+        outputView.printlnThreeStrike();
+        if (inputView.enterFinishType() == 1) {
+            run();
+        }
     }
 
     private Numbers requestNumbers() {
@@ -33,19 +47,5 @@ public class BaseballController {
             outputView.printlnMessageWithEmptyLine(e.getMessage());
             return requestNumbers();
         }
-    }
-
-    private void checkResult(ComputerNumbers computerNumbers, Numbers inputNumbers) {
-        Result result = new Result(computerNumbers, inputNumbers);
-        outputView.printStrikeAndBall(result);
-        if (result.getResultType() == ResultType.THREE_STRIKE) {
-            outputView.printThreeStrikeResult(result);
-            return;
-        }
-        if (result.getResultType() == ResultType.STRIKE_AND_BALL) {
-
-            return;
-        }
-
     }
 }

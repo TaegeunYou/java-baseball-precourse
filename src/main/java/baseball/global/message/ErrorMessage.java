@@ -6,6 +6,7 @@ public enum ErrorMessage {
     NON_DIGIT_CHARACTER_FOUND("모두 숫자로 입력해주세요"),
     NON_POSITIVE_NUMBER_FOUND("모두 0보다 큰 양수로 입력해주세요."),
     DUPLICATE_NUMBER_FOUND("서로 다른 숫자로 입력해주세요."),
+    INVALID_FINISH_INPUT("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.")
     ;
 
     private final static String PREFIX = "[ERROR]";
