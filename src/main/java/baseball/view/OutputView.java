@@ -22,12 +22,13 @@ public class OutputView {
     }
 
     public void printlnStrikeAndBall(Result result) {
+        if (result.getResultType() == ResultType.NOTHING) {
+            printlnMessage("낫싱");
+            return;
+        }
         StringBuilder sb = new StringBuilder();
         appendStrike(result.getStrike(), sb);
         appendBall(result.getBall(), sb);
-        if (sb.isEmpty()) {
-            printlnMessage("낫싱");
-        }
         printlnMessage(sb.toString());
     }
 

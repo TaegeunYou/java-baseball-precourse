@@ -41,10 +41,9 @@ public class BaseballController {
         outputView.printMessage(InputMessage.INPUT_NUMBERS.getMessage());
         try {
             Numbers numbers = new Numbers(inputView.enterNumbers());
-            outputView.printEmptyLine();
             return numbers;
         } catch (CustomException e) {
-            outputView.printlnMessageWithEmptyLine(e.getMessage());
+            outputView.printlnMessage(e.getMessage());
             return requestNumbers();
         }
     }
